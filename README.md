@@ -1,4 +1,4 @@
-# EDUCAT-Data-Visualization
+# NOMADe-Data-Visualization
 MATLAB Scripts for Visualization of Measurement Data
 
 
