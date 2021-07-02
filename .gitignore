@@ -1,0 +1,20 @@
+# Exclude BIN file
+*.bin
+*.BIN
+*.csv
+*.CSV
+
+# Exclude MATLAB files
+*.mat
+*.MAT
+*.asv
+*.ASV
+*.fig
+*.xlsx
+*.slx.autosave
+
+# Exclude JDBC
+mysql-connector-java-8.0.18/*
+jdbc/*
++classes/slprj/*
+Live script reports/*
