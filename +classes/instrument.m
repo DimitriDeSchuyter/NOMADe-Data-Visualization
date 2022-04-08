@@ -130,7 +130,40 @@ classdef instrument < dynamicprops
                     obj.data(17) = classes.data("gz","0.01 degree/s","int_16",maxCycleCount);
                     obj.data(18) = classes.data("ax","cm/s^2","int_16",maxCycleCount);
                     obj.data(19) = classes.data("ay","cm/s^2","int_16",maxCycleCount);
-                    obj.data(20) = classes.data("az","cm/s^2","int_16",maxCycleCount);                  
+                    obj.data(20) = classes.data("az","cm/s^2","int_16",maxCycleCount);    
+                 case 186 % BA IMU_GYRO_ACC_MAG
+                    obj.length = 18;
+                    obj.data = classes.data.empty(0,obj.length);                  
+                    obj.data(1) = classes.data("gx","degree/s","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("gy","degree/s","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("gz","degree/s","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("ax","m/s^2","int_16",maxCycleCount);
+                    obj.data(5) = classes.data("ay","m/s^2","int_16",maxCycleCount);
+                    obj.data(6) = classes.data("az","m/s^2","int_16",maxCycleCount);                    
+                    obj.data(7) = classes.data("mx","µT","int_16",maxCycleCount);
+                    obj.data(8) = classes.data("my","µT","int_16",maxCycleCount);
+                    obj.data(9) = classes.data("mz","µT","int_16",maxCycleCount);   
+                case 187 % BB IMU_GYRO_ACC_MAG_100Hz 
+                    obj.length = 36;
+                    obj.data = classes.data.empty(0,obj.length);                  
+                    obj.data(1) = classes.data("gx","degree/s","int_16",maxCycleCount);
+                    obj.data(2) = classes.data("gy","degree/s","int_16",maxCycleCount);
+                    obj.data(3) = classes.data("gz","degree/s","int_16",maxCycleCount);
+                    obj.data(4) = classes.data("ax","m/s^2","int_16",maxCycleCount);
+                    obj.data(5) = classes.data("ay","m/s^2","int_16",maxCycleCount);
+                    obj.data(6) = classes.data("az","m/s^2","int_16",maxCycleCount);                    
+                    obj.data(7) = classes.data("mx","µT","int_16",maxCycleCount);
+                    obj.data(8) = classes.data("my","µT","int_16",maxCycleCount);
+                    obj.data(9) = classes.data("mz","µT","int_16",maxCycleCount);             
+                    obj.data(10) = classes.data("gx","degree/s","int_16",maxCycleCount);
+                    obj.data(11) = classes.data("gy","degree/s","int_16",maxCycleCount);
+                    obj.data(12) = classes.data("gz","degree/s","int_16",maxCycleCount);
+                    obj.data(13) = classes.data("ax","m/s^2","int_16",maxCycleCount);
+                    obj.data(14) = classes.data("ay","m/s^2","int_16",maxCycleCount);
+                    obj.data(15) = classes.data("az","m/s^2","int_16",maxCycleCount);                    
+                    obj.data(16) = classes.data("mx","µT","int_16",maxCycleCount);
+                    obj.data(17) = classes.data("my","µT","int_16",maxCycleCount);
+                    obj.data(18) = classes.data("mz","µT","int_16",maxCycleCount);   
                 case 193 % C1 GPS_MIN_DATA
                     obj.length = 17;
                     obj.data = classes.data.empty(0,obj.length);
@@ -318,6 +351,35 @@ classdef instrument < dynamicprops
                     obj.data(18) = obj.data(18).add_value(cyclecounter_list, blob(:,35:36));
                     obj.data(19) = obj.data(19).add_value(cyclecounter_list, blob(:,37:38));
                     obj.data(20) = obj.data(20).add_value(cyclecounter_list, blob(:,39:40));
+                 case 186 % BA IMU_GYRO_ACC_MAG 
+                    obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:2));
+                    obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,3:4));
+                    obj.data(3) = obj.data(3).add_value(cyclecounter_list, blob(:,5:6));
+                    obj.data(4) = obj.data(4).add_value(cyclecounter_list, blob(:,7:8));
+                    obj.data(5) = obj.data(5).add_value(cyclecounter_list, blob(:,9:10));
+                    obj.data(6) = obj.data(6).add_value(cyclecounter_list, blob(:,11:12));
+                    obj.data(7) = obj.data(7).add_value(cyclecounter_list, blob(:,13:14));
+                    obj.data(8) = obj.data(8).add_value(cyclecounter_list, blob(:,15:16));
+                    obj.data(9) = obj.data(9).add_value(cyclecounter_list, blob(:,17:18));
+                 case 187 % BA IMU_GYRO_ACC_MAG 100HZ
+                    obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:2));
+                    obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,3:4));
+                    obj.data(3) = obj.data(3).add_value(cyclecounter_list, blob(:,5:6));
+                    obj.data(4) = obj.data(4).add_value(cyclecounter_list, blob(:,7:8));
+                    obj.data(5) = obj.data(5).add_value(cyclecounter_list, blob(:,9:10));
+                    obj.data(6) = obj.data(6).add_value(cyclecounter_list, blob(:,11:12));
+                    obj.data(7) = obj.data(7).add_value(cyclecounter_list, blob(:,13:14));
+                    obj.data(8) = obj.data(8).add_value(cyclecounter_list, blob(:,15:16));
+                    obj.data(9) = obj.data(9).add_value(cyclecounter_list, blob(:,17:18));
+                    obj.data(10) = obj.data(10).add_value(cyclecounter_list, blob(:,19:20));
+                    obj.data(11) = obj.data(11).add_value(cyclecounter_list, blob(:,21:22));
+                    obj.data(12) = obj.data(12).add_value(cyclecounter_list, blob(:,23:24));
+                    obj.data(13) = obj.data(13).add_value(cyclecounter_list, blob(:,25:26));
+                    obj.data(14) = obj.data(14).add_value(cyclecounter_list, blob(:,27:28));
+                    obj.data(15) = obj.data(15).add_value(cyclecounter_list, blob(:,29:30));
+                    obj.data(16) = obj.data(16).add_value(cyclecounter_list, blob(:,31:32));
+                    obj.data(17) = obj.data(17).add_value(cyclecounter_list, blob(:,33:34));
+                    obj.data(18) = obj.data(18).add_value(cyclecounter_list, blob(:,35:36));
                 case 193 % C1
                     obj.data(1) = obj.data(1).add_value(cyclecounter_list, blob(:,1:4));
                     obj.data(2) = obj.data(2).add_value(cyclecounter_list, blob(:,5:8));
@@ -1314,7 +1376,182 @@ classdef instrument < dynamicprops
                     subplotArray(3) = subplot(3,1,3);
                     obj.data(20).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
                     linkaxes(subplotArray,'x');
+                  case 186 % BA  IMU_GYRO_ACC_MAG                                         
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(1).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(3,1,2);
+                    obj.data(2).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(3).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
                     
+                    % accelleration
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(4).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) =subplot(3,1,2);
+                    obj.data(5).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(6).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');
+                      Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+                    
+                      % Magneto
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(7).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(3,1,2);
+                    obj.data(8).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(9).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');       
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+                case 187 % BA  IMU_GYRO_ACC_MAG 
+                                        
+                    
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(1).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(3,1,2);
+                    obj.data(2).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(3).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+                    
+                    % accelleration
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(4).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) =subplot(3,1,2);
+                    obj.data(5).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(6).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');
+                      Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+                    
+                      % Magneto
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(7).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(3,1,2);
+                    obj.data(8).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(9).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');       
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+%                     gyroscope
+                   subplotArray(1) = subplot(3,1,1);
+                    obj.data(10).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(3,1,2);
+                    obj.data(11).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(12).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+                    
+                    % accelleration
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(13).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) =subplot(3,1,2);
+                    obj.data(14).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(15).plot(startTime,true,true,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');
+                      Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
+                    
+                      % Magneto
+                    figure();
+                    set(gca,'fontsize',20) % set fontsize of the plot to 20
+                    set(gcf,'units','normalized','outerposition',[0 0 1 1]) % full screen
+                    set(0, 'DefaultAxesFontSize', fontSize);
+                    subplotArray(1) = subplot(3,1,1);
+                    obj.data(16).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(2) = subplot(3,1,2);
+                    obj.data(17).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    subplotArray(3) = subplot(3,1,3);
+                    obj.data(18).plot(startTime,true,false,true,plotDownSample,downSampleFactor);
+                    linkaxes(subplotArray,'x');       
+                    Title = [obj.name newline  '- ' ...
+                        datestr(datetime(startTime), ...
+                        'dd/mm/yyyy') ' - Measurement ID: ' num2str(measureID) ' - '];
+                    try
+                        sgtitle(Title,'fontsize',fontSize+2);
+                    catch
+                        suptitle(Title);
+                    end
                 case 193 % C1 GPS MIN
                     if showGPS >0
                         subplotArray(1) = subplot(2,1,1);
