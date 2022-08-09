@@ -759,6 +759,8 @@ classdef instrument < dynamicprops
             obj.filtered = true;
         end
         
+        
+       
         %%  *************** export function *******************
         function out = export(obj)
             % Under construction

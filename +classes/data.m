@@ -114,7 +114,9 @@ classdef data
                 plot(time,obj.values,'LineWidth',2);
              end
             if enableTitle
-                title([char(obj.name) ' [' char(obj.unit) ']'],'fontsize',20);
+                
+                    subtitle([char(obj.name) ' [' char(obj.unit) ']'],'fontsize',20);
+                                
             end
             if yEnLim && obj.datatype ~= 0
                 ylim([min([-0.1; obj.values],[],'all')*1.1 (1.1*max([obj.values;0.1],[],'all'))]);

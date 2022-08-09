@@ -65,7 +65,7 @@ classdef measurement < dynamicprops
             obj.enableStoreMemory = false;
         end
         
-        function obj = connect(obj,sort,direction)
+        function obj = connect(obj,useLocal,localUrl,sort,direction)
             % Start a connection with the NOMADe database on the Myriade
             % server.
             %
@@ -92,9 +92,13 @@ classdef measurement < dynamicprops
             databaseName = "nomade";
             username = "nomade-dev";
             disp([' NOMADe DB username: ' char(username)]);
-            if isfile("password.mat")
+            
+            if useLocal
+                 password = input(' NOMADe DB password: ','s');
+            elseif isfile("password.mat")
                 load password.mat password;
-            end
+            end            
+           
             if ~exist('password','var')
                 password = input(' NOMADe DB password: ','s');
                 store_password = input(' store this password (Y/N): ','s');
@@ -109,8 +113,11 @@ classdef measurement < dynamicprops
             end
             
             jdbcDriver = "com.mysql.cj.jdbc.Driver";
-            server = "jdbc:mysql://clouddb.myriade.be:20100/";
-            
+            if useLocal
+                server =  "jdbc:mysql://" + localUrl + ":20100/";
+            else
+                server = "jdbc:mysql://clouddb.myriade.be:20100/";
+            end
             % TODO: Check for valid connection
             obj.conn = database(databaseName, username, password, jdbcDriver, server);
             
@@ -639,7 +646,7 @@ classdef measurement < dynamicprops
             end
         end
         
-        
+       
         %% ***************Filtering *******************
         function obj = filter(obj,deadZone,FilterUnit)
             %All the instruments will be plotted
